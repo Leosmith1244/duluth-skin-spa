@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Duluth Skin Spa | Personalized Skincare in Duluth, MN</title>
+  <meta
+    name="description"
+    content="Duluth Skin Spa offers personalized facials, advanced skincare treatments, lash and brow services, and waxing in a calm private studio in Duluth, Minnesota."
+  />
+  <style>
+    :root {
+      --navy: #234a73;
+      --navy-deep: #17324d;
+      --sky: #4d84b3;
+      --sand: #efe7df;
+      --ivory: #fbf8f4;
+      --text: #24313d;
+      --muted: #66727d;
+      --line: #d9d4cd;
+      --white: #ffffff;
+      --shadow: 0 18px 40px rgba(23, 50, 77, 0.1);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      color: var(--text);
+      background: var(--ivory);
+      line-height: 1.6;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .serif {
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: 0.02em;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      background: var(--navy-deep);
+      color: rgba(255,255,255,0.92);
+      font-size: 0.95rem;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.8rem 0;
+      flex-wrap: wrap;
+    }
+
+    .topbar span {
+      white-space: nowrap;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(251, 248, 244, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(35, 74, 115, 0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(77,132,179,0.12), rgba(35,74,115,0.18));
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(35,74,115,0.1);
+      flex-shrink: 0;
+    }
+
+    .brand-mark svg {
+      width: 42px;
+      height: 42px;
+      stroke: var(--navy);
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-copy strong {
+      display: block;
+      font-size: 1.1rem;
+      color: var(--navy-deep);
+    }
+
+    .brand-copy span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.35rem;
+      padding: 0;
+      margin: 0;
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 0.96rem;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      color: var(--navy);
+    }
+
+    .button,
+    .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 999px;
+      padding: 0.95rem 1.35rem;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .button {
+      background: var(--navy);
+      color: var(--white);
+      box-shadow: 0 14px 30px rgba(35, 74, 115, 0.18);
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+      background: #1d3f62;
+    }
+
+    .button-secondary {
+      background: rgba(35, 74, 115, 0.08);
+      color: var(--navy);
+      border: 1px solid rgba(35, 74, 115, 0.1);
+    }
+
+    .button-secondary:hover,
+    .button-secondary:focus-visible {
+      transform: translateY(-1px);
+      background: rgba(35, 74, 115, 0.12);
+    }
+
+    .hero {
+      padding: 4.5rem 0 3rem;
+      background:
+        radial-gradient(circle at top left, rgba(77,132,179,0.12), transparent 28%),
+        linear-gradient(180deg, #f8f3ed 0%, #fbf8f4 45%, #fbf8f4 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: var(--sky);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.84rem;
+    }
+
+    h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(2.5rem, 5vw, 4.7rem);
+      line-height: 1.05;
+      color: var(--navy-deep);
+    }
+
+    .hero p {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 56ch;
+      margin: 0 0 1.6rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .hero-points li {
+      padding: 0.6rem 0.9rem;
+      background: rgba(255,255,255,0.75);
+      border-radius: 999px;
+      border: 1px solid rgba(35,74,115,0.08);
+      color: var(--navy-deep);
+      font-weight: 600;
+      font-size: 0.94rem;
+    }
+
+    .hero-card {
+      position: relative;
+      background: var(--white);
+      padding: 1rem;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-image {
+      border-radius: 22px;
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      background: #e9e4dd;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .floating-note {
+      position: absolute;
+      right: -1rem;
+      bottom: 1.5rem;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid rgba(35,74,115,0.08);
+      border-radius: 18px;
+      padding: 1rem 1.1rem;
+      width: min(260px, 82%);
+      box-shadow: 0 15px 30px rgba(35, 74, 115, 0.12);
+    }
+
+    .floating-note strong {
+      display: block;
+      color: var(--navy-deep);
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+
+    .floating-note span {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 2rem;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.1;
+      margin: 0 0 0.75rem;
+      color: var(--navy-deep);
+    }
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .grid-3,
+    .grid-4,
+    .grid-2 {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      box-shadow: 0 6px 18px rgba(23, 50, 77, 0.04);
+    }
+
+    .card h3 {
+      margin: 0 0 0.65rem;
+      color: var(--navy-deep);
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .card .mini {
+      display: inline-block;
+      margin-top: 0.9rem;
+      color: var(--sky);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .about {
+      background: linear-gradient(180deg, rgba(77,132,179,0.08), rgba(77,132,179,0.02));
+    }
+
+    .about-wrap {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-box {
+      background: var(--white);
+      border: 1px solid rgba(35,74,115,0.08);
+      border-radius: 24px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 1.4rem;
+    }
+
+    .stat {
+      background: rgba(35,74,115,0.05);
+      border-radius: 18px;
+      padding: 1rem;
+      border: 1px solid rgba(35,74,115,0.07);
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--navy-deep);
+      font-size: 1.5rem;
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .photo-stack {
+      display: grid;
+      grid-template-columns: 1fr 0.82fr;
+      gap: 1rem;
+      align-items: stretch;
+    }
+
+    .photo-stack img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .photo-tall {
+      min-height: 440px;
+    }
+
+    .photo-column {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .services .card {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .service-list {
+      margin: 1rem 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .service-list li + li {
+      margin-top: 0.35rem;
+    }
+
+    .feature-band {
+      background: var(--navy-deep);
+      color: var(--white);
+    }
+
+    .feature-band .section-heading h2,
+    .feature-band .section-heading p {
+      color: var(--white);
+    }
+
+    .feature-band .card {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.1);
+      box-shadow: none;
+    }
+
+    .feature-band .card h3,
+    .feature-band .card p,
+    .feature-band .card .mini {
+      color: var(--white);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .gallery-side {
+      display: grid;
+      gap: 1rem;
+      grid-template-rows: repeat(2, minmax(0, 1fr));
+    }
+
+    .cta {
+      background: linear-gradient(135deg, rgba(35,74,115,0.95), rgba(77,132,179,0.95));
+      color: var(--white);
+      border-radius: 30px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.5rem;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.08;
+    }
+
+    .cta p {
+      margin: 0;
+      color: rgba(255,255,255,0.88);
+      font-size: 1.05rem;
+    }
+
+    .cta .button,
+    .cta .button-secondary {
+      width: fit-content;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--navy-deep);
+      margin-bottom: 0.35rem;
+      font-size: 1rem;
+    }
+
+    .faq details {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1rem 1.1rem;
+    }
+
+    .faq details + details {
+      margin-top: 0.9rem;
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--navy-deep);
+    }
+
+    .faq p {
+      margin: 0.85rem 0 0;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      padding-top: 1.4rem;
+    }
+
+    .mobile-book {
+      display: none;
+      position: fixed;
+      inset: auto 0 0 0;
+      padding: 0.85rem 1rem calc(0.85rem + env(safe-area-inset-bottom));
+      background: rgba(251,248,244,0.95);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(35,74,115,0.1);
+      z-index: 30;
+    }
+
+    .mobile-book .button {
+      width: 100%;
+    }
+
+    @media (max-width: 980px) {
+      nav { display: none; }
+      .hero-grid,
+      .about-wrap,
+      .gallery-grid,
+      .cta,
+      .grid-4,
+      .grid-3,
+      .grid-2,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .photo-stack {
+        grid-template-columns: 1fr;
+      }
+      .stats {
+        grid-template-columns: 1fr;
+      }
+      .floating-note {
+        position: static;
+        width: 100%;
+        margin-top: 1rem;
+      }
+      .hero {
+        padding-top: 3rem;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .button,
+      .button-secondary {
+        width: 100%;
+      }
+      section {
+        padding: 4rem 0;
+      }
+      .mobile-book {
+        display: block;
+      }
+      body {
+        padding-bottom: 5.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Private studio skincare in Duluth, Minnesota</span>
+      <span>Mon–Fri 8:00 AM–7:00 PM · Sat 8:00 AM–2:00 PM</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Duluth Skin Spa home">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 39H56" stroke-width="2.8" stroke-linecap="round"/>
+            <path d="M13 39L17 16H47L51 39" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 27H46" stroke-width="2.8" stroke-linecap="round"/>
+            <path d="M18 27L24 21L30 27L36 21L42 27L46 23" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M23 39V29" stroke-width="2.8" stroke-linecap="round"/>
+            <path d="M41 39V29" stroke-width="2.8" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="brand-copy">
+          <strong class="serif">Duluth Skin Spa</strong>
+          <span>Personalized skincare and advanced treatments</span>
+        </div>
+      </a>
+
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#space">The Space</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a class="button" href="https://duluth-skin-spa-llc.square.site/" target="_blank" rel="noopener">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Boutique skincare in Duluth</span>
+          <h1 class="serif">Healthy skin starts with personal care.</h1>
+          <p>
+            Duluth Skin Spa offers facials, advanced skincare treatments, lash and brow services,
+            and waxing in a calm private studio designed for one-on-one care.
+          </p>
+          <div class="hero-actions">
+            <a class="button" href="https://duluth-skin-spa-llc.square.site/" target="_blank" rel="noopener">Book Appointment</a>
+            <a class="button-secondary" href="#services">View Services</a>
+          </div>
+          <ul class="hero-points" aria-label="Highlights">
+            <li>20+ years of experience</li>
+            <li>Personalized treatments</li>
+            <li>Private, welcoming studio</li>
+          </ul>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-image">
+            <img src="/mnt/data/SkinSpa02.jpg" alt="Private treatment room at Duluth Skin Spa with treatment table and soft natural light" />
+          </div>
+          <div class="floating-note">
+            <strong>Advanced care, personal attention</strong>
+            <span>Facials, peels, microneedling, lash and brow services, and convenient online booking.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container about-wrap">
+        <div class="about-box">
+          <div class="section-heading">
+            <span class="eyebrow">Meet Mickie Cheeley</span>
+            <h2 class="serif">Experience you can trust. Care that feels personal.</h2>
+            <p>
+              Mickie Cheeley brings more than 17 years of professional skincare experience to every appointment.
+              As the former owner of Skin Spa of Cold Spring from 2006 to 2022, she has built her work around
+              thoughtful treatment plans, gentle expertise, and a welcoming client experience.
+            </p>
+          </div>
+          <p>
+            Duluth Skin Spa is designed to feel calm, private, and approachable whether you are booking a facial,
+            improving tone and texture with advanced treatments, or stopping in for a quick maintenance service.
+          </p>
+          <div class="stats" aria-label="Business highlights">
+            <div class="stat">
+              <strong>20+</strong>
+              <span>Years of skincare experience</span>
+            </div>
+            <div class="stat">
+              <strong>1:1</strong>
+              <span>Private studio appointments</span>
+            </div>
+            <div class="stat">
+              <strong>5</strong>
+              <span>Core service categories</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="photo-stack">
+          <img class="photo-tall" src="/mnt/data/SkinSpa01.jpg" alt="Treatment room at Duluth Skin Spa with spa bed, sink, and professional equipment" />
+          <div class="photo-column">
+            <img src="/mnt/data/SkinSpa03.jpg" alt="Professional Glo Skin Beauty products displayed at Duluth Skin Spa" />
+            <img src="/mnt/data/skinSpa00.jpg" alt="Duluth Skin Spa logo with bridge design" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Services</span>
+          <h2 class="serif">Professional treatments tailored to your skin goals.</h2>
+          <p>
+            Pricing and appointment selection are handled through Square, but here is a clear overview of the services offered at Duluth Skin Spa.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <article class="card">
+            <h3>Facials</h3>
+            <p>Customized treatments designed to cleanse, nourish, smooth, and refresh the skin.</p>
+            <ul class="service-list">
+              <li>30 Minute Facial · $50</li>
+              <li>45 Minute Facial · $65</li>
+              <li>1 Hour Facial · $80</li>
+              <li>90 Minute Facial · $110</li>
+            </ul>
+            <span class="mini">Relaxing care with real results</span>
+          </article>
+
+          <article class="card">
+            <h3>Advanced Treatments</h3>
+            <p>Target texture, tone, breakouts, and visible signs of aging with focused clinical services.</p>
+            <ul class="service-list">
+              <li>GlyPro AHA Peel · $100</li>
+              <li>Retinol + C Peel · $150</li>
+              <li>Microneedling · $200</li>
+              <li>Gel Peel · $70</li>
+              <li>Beta Clarity Peel · $100</li>
+            </ul>
+            <span class="mini">Refine and resurface</span>
+          </article>
+
+          <article class="card">
+            <h3>Service Combinations</h3>
+            <p>Combine facials with peels or microneedling for deeper correction and a more targeted treatment plan.</p>
+            <ul class="service-list">
+              <li>Facial + GlyPro AHA Peel</li>
+              <li>Facial + Beta Clarity Peel</li>
+              <li>Facial + Gel Peel</li>
+              <li>Facial + Microneedling</li>
+            </ul>
+            <span class="mini">Deeper treatment options</span>
+          </article>
+
+          <article class="card">
+            <h3>Lash, Brow & Waxing</h3>
+            <p>Convenient maintenance services for polished, natural-looking results and everyday confidence.</p>
+            <ul class="service-list">
+              <li>Lash Lift · $75</li>
+              <li>Lash Tint · $40</li>
+              <li>Brow Tint · $40</li>
+              <li>Brow, Lip & Chin Waxing</li>
+            </ul>
+            <span class="mini">Simple services, beautifully done</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-band">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Why clients choose Duluth Skin Spa</span>
+          <h2 class="serif">A private studio experience with professional-level care.</h2>
+          <p>
+            The goal is simple: make skincare feel comfortable, effective, and easy to return to.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>One-on-one attention</h3>
+            <p>Appointments are personal, focused, and never rushed through a busy spa floor.</p>
+          </article>
+          <article class="card">
+            <h3>Advanced treatment options</h3>
+            <p>Choose from classic facials, resurfacing peels, microneedling, and targeted combinations.</p>
+          </article>
+          <article class="card">
+            <h3>Approachable and welcoming</h3>
+            <p>Whether you come in regularly or it is your first appointment, the experience is designed to feel easy and comfortable.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="space">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">The space</span>
+          <h2 class="serif">Calm, clean, and designed for a more personal appointment.</h2>
+          <p>
+            Duluth Skin Spa operates from a dedicated studio space that feels private, relaxed, and intentionally welcoming.
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <img src="/mnt/data/SkinSpa04.jpg" alt="Duluth Skin Spa treatment room shown in a bright, welcoming view" />
+          <div class="gallery-side">
+            <img src="/mnt/data/GenericSkin-2-720x320-mobile.webp" alt="Professional Glo Skin Beauty skincare products" />
+            <img src="/mnt/data/gsb-banner.webp" alt="Glo Skin Beauty skincare collection" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container cta">
+        <div>
+          <span class="eyebrow" style="color: rgba(255,255,255,0.75);">Book online</span>
+          <h2 class="serif">Ready to schedule your treatment?</h2>
+          <p>
+            View pricing, select your service, and book directly through Duluth Skin Spa’s secure Square scheduling page.
+          </p>
+        </div>
+        <div style="display:flex; gap:0.9rem; flex-wrap:wrap; justify-content:flex-start; align-items:center;">
+          <a class="button" href="https://duluth-skin-spa-llc.square.site/" target="_blank" rel="noopener">Book Now</a>
+          <a class="button-secondary" href="#contact" style="background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.18);">Contact Mickie</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="faq">
+      <div class="container grid-2">
+        <div>
+          <div class="section-heading">
+            <span class="eyebrow">FAQ</span>
+            <h2 class="serif">Helpful information before you book.</h2>
+            <p>
+              Clear, simple answers help first-time clients feel comfortable before their appointment.
+            </p>
+          </div>
+        </div>
+
+        <div>
+          <details open>
+            <summary>How do I book an appointment?</summary>
+            <p>All booking and pricing are handled through Square. Use any “Book Now” button on this site to view services and schedule your appointment.</p>
+          </details>
+          <details>
+            <summary>Where is Duluth Skin Spa located?</summary>
+            <p>Duluth Skin Spa is located at 2112 E 3rd St, Duluth, MN 55812.</p>
+          </details>
+          <details>
+            <summary>What services are offered?</summary>
+            <p>The spa offers facials, advanced treatments such as peels and microneedling, service combinations, lash and brow services, and waxing.</p>
+          </details>
+          <details>
+            <summary>What products are used?</summary>
+            <p>Duluth Skin Spa features professional skincare lines including Glo Skin Beauty, supporting treatment plans with high-quality products.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Contact</span>
+          <h2 class="serif">Questions before you book? Reach out anytime.</h2>
+          <p>
+            For appointment details, service questions, or help choosing the right treatment, contact Duluth Skin Spa directly.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card contact-item">
+            <strong>Duluth Skin Spa LLC</strong>
+            <div>2112 E 3rd St<br />Duluth, MN 55812</div>
+          </div>
+          <div class="card contact-item">
+            <strong>Phone</strong>
+            <div><a href="tel:+13202921535">(320) 292-1535</a></div>
+          </div>
+          <div class="card contact-item">
+            <strong>Email</strong>
+            <div><a href="mailto:duluthskinspa@gmail.com">duluthskinspa@gmail.com</a></div>
+          </div>
+          <div class="card contact-item">
+            <strong>Hours</strong>
+            <div>Mon–Fri 8:00 AM–7:00 PM<br />Sat 8:00 AM–2:00 PM<br />Sun Closed</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Duluth Skin Spa LLC. All rights reserved.</div>
+      <div>Website designed to support Square booking and a personalized client experience.</div>
+    </div>
+  </footer>
+
+  <div class="mobile-book">
+    <a class="button" href="https://duluth-skin-spa-llc.square.site/" target="_blank" rel="noopener">Book Now</a>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
