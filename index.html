@@ -606,6 +606,22 @@
         padding-top: 3rem;
       }
     }
+	.about-logo {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  object-fit: contain;
+  margin: 0 auto;
+  background: #fff;
+  padding: 0.75rem;
+}
+
+@media (max-width: 720px) {
+  .about-logo {
+    max-width: 140px;
+    padding: 0.5rem;
+  }
+}
 
     @media (max-width: 720px) {
       .topbar-inner {
@@ -741,7 +757,7 @@
           <img class="photo-tall" src="/images/treatment-room-1.jpg" alt="Treatment room at Duluth Skin Spa with spa bed, sink, and professional equipment" />
           <div class="photo-column">
             <img src="images/spa-products-shelf.jpg" alt="Professional Glo Skin Beauty products displayed at Duluth Skin Spa" />
-            <img src="/images/logo.png" alt="Duluth Skin Spa logo with bridge design" />
+            <img class="about-logo" src="images/logo.png" alt="Duluth Skin Spa logo" />
           </div>
         </div>
       </div>
