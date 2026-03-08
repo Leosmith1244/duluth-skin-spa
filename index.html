@@ -8,6 +8,17 @@
     name="description"
     content="Duluth Skin Spa offers personalized facials, advanced skincare treatments, lash and brow services, and waxing in a calm private studio in Duluth, Minnesota."
   />
+  <link rel="icon" type="image/png" href="images/logo.png" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Duluth Skin Spa | Personalized Skincare in Duluth, MN" />
+  <meta property="og:description" content="Personalized facials, advanced treatments, lash and brow services, and waxing in a calm private Duluth studio." />
+  <meta property="og:url" content="https://duluthskinspa.com/" />
+  <meta property="og:image" content="https://duluthskinspa.com/images/hero-room.JPG" />
+  <meta property="og:image:alt" content="Private treatment room at Duluth Skin Spa" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Duluth Skin Spa | Personalized Skincare in Duluth, MN" />
+  <meta name="twitter:description" content="Personalized facials, advanced treatments, lash and brow services, and waxing in a calm private Duluth studio." />
+  <meta name="twitter:image" content="https://duluthskinspa.com/images/hero-room.JPG" />
   <style>
     :root {
       --navy: #234a73;
@@ -99,20 +110,112 @@
     }
 
     .brand-mark {
-      width: 58px;
-      height: 58px;
+      width: 64px;
+      height: 64px;
       border-radius: 16px;
-      background: linear-gradient(180deg, rgba(77,132,179,0.12), rgba(35,74,115,0.18));
+      background: var(--white);
       display: grid;
       place-items: center;
       border: 1px solid rgba(35,74,115,0.1);
       flex-shrink: 0;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(23, 50, 77, 0.08);
     }
 
-    .brand-mark svg {
-      width: 42px;
-      height: 42px;
-      stroke: var(--navy);
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      border: 1px solid rgba(35, 74, 115, 0.12);
+      background: var(--white);
+      color: var(--navy-deep);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(23, 50, 77, 0.06);
+    }
+
+    .menu-toggle span,
+    .menu-toggle span::before,
+    .menu-toggle span::after {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 999px;
+      position: relative;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      content: "";
+    }
+
+    .menu-toggle span::before {
+      position: absolute;
+      top: -6px;
+      left: 0;
+    }
+
+    .menu-toggle span::after {
+      position: absolute;
+      top: 6px;
+      left: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] span {
+      background: transparent;
+    }
+
+    .menu-toggle[aria-expanded="true"] span::before {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span::after {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      display: none;
+      padding: 0 0 1rem;
+    }
+
+    .mobile-menu-inner {
+      background: var(--white);
+      border: 1px solid rgba(35, 74, 115, 0.08);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 1rem;
+    }
+
+    .mobile-menu nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .mobile-menu nav a {
+      display: block;
+      padding: 0.85rem 0.95rem;
+      border-radius: 14px;
+      color: var(--navy-deep);
+      font-weight: 700;
+    }
+
+    .mobile-menu nav a:hover,
+    .mobile-menu nav a:focus-visible {
+      background: rgba(35, 74, 115, 0.06);
+    }
+
+    .mobile-menu .button {
+      width: 100%;
+      margin-top: 0.7rem;
     }
 
     .brand-copy {
@@ -581,6 +684,35 @@
 
     @media (max-width: 980px) {
       nav { display: none; }
+      .menu-toggle { display: inline-flex; }
+      .hero-grid,
+      .about-wrap,
+      .gallery-grid,
+      .cta,
+      .grid-4,
+      .grid-3,
+      .grid-2,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .photo-stack {
+        grid-template-columns: 1fr;
+      }
+      .stats {
+        grid-template-columns: 1fr;
+      }
+      .floating-note {
+        position: static;
+        width: 100%;
+        margin-top: 1rem;
+      }
+      .hero {
+        padding-top: 3rem;
+      }
+      .mobile-menu.is-open {
+        display: block;
+      }
+    }
       .hero-grid,
       .about-wrap,
       .gallery-grid,
@@ -644,14 +776,7 @@
     <div class="container nav">
       <a class="brand" href="#top" aria-label="Duluth Skin Spa home">
         <div class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 39H56" stroke-width="2.8" stroke-linecap="round"/>
-            <path d="M13 39L17 16H47L51 39" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M18 27H46" stroke-width="2.8" stroke-linecap="round"/>
-            <path d="M18 27L24 21L30 27L36 21L42 27L46 23" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M23 39V29" stroke-width="2.8" stroke-linecap="round"/>
-            <path d="M41 39V29" stroke-width="2.8" stroke-linecap="round"/>
-          </svg>
+          <img src="images/logo.png" alt="" />
         </div>
         <div class="brand-copy">
           <strong class="serif">Duluth Skin Spa</strong>
@@ -669,6 +794,24 @@
           <li><a class="button" href="https://duluth-skin-spa-llc.square.site/" target="_blank" rel="noopener">Book Now</a></li>
         </ul>
       </nav>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span></span>
+      </button>
+    </div>
+    <div class="container mobile-menu" id="mobile-menu">
+      <div class="mobile-menu-inner">
+        <nav aria-label="Mobile">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#space">The Space</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+          <a class="button" href="https://duluth-skin-spa-llc.square.site/" target="_blank" rel="noopener">Book Now</a>
+        </nav>
+      </div>
     </div>
   </header>
 
@@ -695,7 +838,7 @@
 
         <div class="hero-card">
           <div class="hero-image">
-            <img src="/images/hero-room.JPG" alt="Private treatment room at Duluth Skin Spa with treatment table and soft natural light" />
+            <img src="images/hero-room.JPG" alt="Private treatment room at Duluth Skin Spa with treatment table and soft natural light" />
           </div>
           <div class="floating-note">
             <strong>Advanced care, personal attention</strong>
@@ -738,10 +881,10 @@
         </div>
 
         <div class="photo-stack">
-          <img class="photo-tall" src="/images/treatment-room-1.jpg" alt="Treatment room at Duluth Skin Spa with spa bed, sink, and professional equipment" />
+          <img class="photo-tall" src="images/treatment-room-1.jpg" alt="Treatment room at Duluth Skin Spa with spa bed, sink, and professional equipment" />
           <div class="photo-column">
             <img src="images/spa-products-shelf.jpg" alt="Professional Glo Skin Beauty products displayed at Duluth Skin Spa" />
-            <img src="/images/logo.png" alt="Duluth Skin Spa logo with bridge design" />
+            <img src="images/logo.png" alt="Duluth Skin Spa logo with bridge design" />
           </div>
         </div>
       </div>
@@ -848,10 +991,10 @@
         </div>
 
         <div class="gallery-grid">
-          <img src="/images/treatment-room-2.jpg" alt="Duluth Skin Spa treatment room shown in a bright, welcoming view" />
+          <img src="images/treatment-room-2.jpg" alt="Duluth Skin Spa treatment room shown in a bright, welcoming view" />
           <div class="gallery-side">
-            <img src="/images/products-1.jpg" alt="Professional Glo Skin Beauty skincare products" />
-            <img src="/images/glo-products-banner.jpg" alt="Glo Skin Beauty skincare collection" />
+            <img src="images/products-1.jpg" alt="Professional Glo Skin Beauty skincare products" />
+            <img src="images/glo-products-banner.jpg" alt="Glo Skin Beauty skincare collection" />
           </div>
         </div>
       </div>
@@ -951,6 +1094,27 @@
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', String(!isOpen));
+        menuToggle.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+        mobileMenu.classList.toggle('is-open');
+      });
+
+      mobileMenuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.setAttribute('aria-label', 'Open menu');
+          mobileMenu.classList.remove('is-open');
+        });
+      });
+    }
   </script>
 </body>
 </html>
