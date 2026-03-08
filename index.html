@@ -109,11 +109,11 @@
       flex-shrink: 0;
     }
 
-    .brand-mark svg {
-      width: 42px;
-      height: 42px;
-      stroke: var(--navy);
-    }
+    .brand-mark img {
+  width: 42px;
+  height: auto;
+  object-fit: contain;
+}
 
     .brand-copy {
       min-width: 0;
@@ -668,16 +668,9 @@
   <header>
     <div class="container nav">
       <a class="brand" href="#top" aria-label="Duluth Skin Spa home">
-        <div class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M8 39H56" stroke-width="2.8" stroke-linecap="round"/>
-            <path d="M13 39L17 16H47L51 39" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M18 27H46" stroke-width="2.8" stroke-linecap="round"/>
-            <path d="M18 27L24 21L30 27L36 21L42 27L46 23" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M23 39V29" stroke-width="2.8" stroke-linecap="round"/>
-            <path d="M41 39V29" stroke-width="2.8" stroke-linecap="round"/>
-          </svg>
-        </div>
+        <div class="brand-mark">
+  <img src="/images/logo.png" alt="Duluth Skin Spa logo">
+</div>
         <div class="brand-copy">
           <strong class="serif">Duluth Skin Spa</strong>
           <span>Personalized skincare and advanced treatments</span>
